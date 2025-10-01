@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FreelanceFlow - Create Invoice</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "foreground-light": "#111827",
+                        "foreground-dark": "#f9fafb",
+                        "subtle-light": "#6b7280",
+                        "subtle-dark": "#9ca3af",
+                        "border-light": "#e5e7eb",
+                        "border-dark": "#374151"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex flex-col min-h-screen">
+<header class="bg-white dark:bg-background-dark border-b border-border-light dark:border-border-dark sticky top-0 z-10">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center gap-4">
+<div class="text-primary">
+<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 6H42L36 24L42 42H6L12 24L6 6Z"></path>
+</svg>
+</div>
+<h1 class="text-xl font-bold text-foreground-light dark:text-foreground-dark">FreelanceFlow</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-sm font-medium text-primary dark:text-primary" href="#">Invoices</a>
+<a class="text-sm font-medium text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors" href="#">Clients</a>
+<a class="text-sm font-medium text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary transition-colors" href="#">Settings</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="md:hidden text-subtle-light dark:text-subtle-dark">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD-hA9lvy6DSt1wEsIGnqlUh6ylNTK7v5xONuiSvIcSqGY_1qKg30qDlJJ7_QFsX_EXfiC9esYZP5s3I1kwYFAUm6UARMarS2rF9upr9PU0QQP-jNLvvp8uc1bPnvhuf6WEvEjI2gPfmgVzJJcH90PbZbtbGVxcvlb74xBPJ-HEcmEyHqCpFOVrtOHouraVfyfRLB1Qp6l83j4hyfeZlmhTTm2uZJz2y-voTikd9lfklKspAcQMX-0ktLHMFBVhAMs7DECYwaGEJYY");'></div>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="max-w-4xl mx-auto">
+<div class="mb-8">
+<h2 class="text-3xl font-bold text-foreground-light dark:text-foreground-dark">Create Invoice</h2>
+<p class="text-subtle-light dark:text-subtle-dark mt-1">Fill out the form below to generate a new invoice.</p>
+</div>
+<div class="space-y-6 bg-white dark:bg-background-dark/50 p-6 rounded-lg border border-border-light dark:border-border-dark">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-medium text-foreground-light dark:text-foreground-dark mb-1" for="client">Client</label>
+<div class="relative">
+<select class="w-full pl-3 pr-10 py-2.5 text-foreground-light dark:text-foreground-dark bg-transparent dark:bg-background-dark border border-border-light dark:border-border-dark rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary" id="client">
+<option>Select a client</option>
+<option>Stark Industries</option>
+<option>Wayne Enterprises</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-subtle-light dark:text-subtle-dark pointer-events-none">expand_more</span>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-foreground-light dark:text-foreground-dark mb-1" for="invoice-number">Invoice Number</label>
+<input class="w-full px-3 py-2.5 text-foreground-light dark:text-foreground-dark bg-transparent dark:bg-background-dark border border-border-light dark:border-border-dark rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary" id="invoice-number" placeholder="INV-001" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-medium text-foreground-light dark:text-foreground-dark mb-1" for="issue-date">Issue Date</label>
+<input class="w-full px-3 py-2.5 text-foreground-light dark:text-foreground-dark bg-transparent dark:bg-background-dark border border-border-light dark:border-border-dark rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary" id="issue-date" type="date"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-foreground-light dark:text-foreground-dark mb-1" for="due-date">Due Date</label>
+<input class="w-full px-3 py-2.5 text-foreground-light dark:text-foreground-dark bg-transparent dark:bg-background-dark border border-border-light dark:border-border-dark rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary" id="due-date" type="date"/>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-foreground-light dark:text-foreground-dark mb-3 border-b border-border-light dark:border-border-dark pb-2">Line Items</h3>
+<div class="overflow-x-auto">
+<table class="min-w-full divide-y divide-border-light dark:divide-border-dark">
+<thead class="bg-background-light dark:bg-background-dark/70">
+<tr>
+<th class="px-4 py-3 text-left text-xs font-medium text-subtle-light dark:text-subtle-dark uppercase tracking-wider w-2/5" scope="col">Description</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-subtle-light dark:text-subtle-dark uppercase tracking-wider" scope="col">Qty</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-subtle-light dark:text-subtle-dark uppercase tracking-wider" scope="col">Price</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-subtle-light dark:text-subtle-dark uppercase tracking-wider" scope="col">Tax</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-subtle-light dark:text-subtle-dark uppercase tracking-wider" scope="col">Total</th>
+<th class="relative px-4 py-3" scope="col"><span class="sr-only">Actions</span></th>
+</tr>
+</thead>
+<tbody class="bg-white dark:bg-transparent divide-y divide-border-light dark:divide-border-dark">
+<tr>
+<td class="px-4 py-3 whitespace-nowrap"><input class="w-full p-1 bg-transparent border-none focus:ring-0 text-sm text-foreground-light dark:text-foreground-dark" type="text" value="Web Design Services"/></td>
+<td class="px-4 py-3 whitespace-nowrap"><input class="w-20 p-1 bg-transparent border-none focus:ring-0 text-sm text-foreground-light dark:text-foreground-dark" type="number" value="2"/></td>
+<td class="px-4 py-3 whitespace-nowrap"><input class="w-24 p-1 bg-transparent border-none focus:ring-0 text-sm text-foreground-light dark:text-foreground-dark" type="text" value="$500.00"/></td>
+<td class="px-4 py-3 whitespace-nowrap"><input class="w-20 p-1 bg-transparent border-none focus:ring-0 text-sm text-foreground-light dark:text-foreground-dark" type="text" value="10%"/></td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-subtle-light dark:text-subtle-dark">$1100.00</td>
+<td class="px-4 py-3 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-subtle-light dark:text-subtle-dark hover:text-red-600 dark:hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</td>
+</tr>
+<tr>
+<td class="px-4 py-3 whitespace-nowrap"><input class="w-full p-1 bg-transparent border-none focus:ring-0 text-sm text-foreground-light dark:text-foreground-dark" type="text" value="Content Creation"/></td>
+<td class="px-4 py-3 whitespace-nowrap"><input class="w-20 p-1 bg-transparent border-none focus:ring-0 text-sm text-foreground-light dark:text-foreground-dark" type="number" value="1"/></td>
+<td class="px-4 py-3 whitespace-nowrap"><input class="w-24 p-1 bg-transparent border-none focus:ring-0 text-sm text-foreground-light dark:text-foreground-dark" type="text" value="$300.00"/></td>
+<td class="px-4 py-3 whitespace-nowrap"><input class="w-20 p-1 bg-transparent border-none focus:ring-0 text-sm text-foreground-light dark:text-foreground-dark" type="text" value="5%"/></td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-subtle-light dark:text-subtle-dark">$315.00</td>
+<td class="px-4 py-3 whitespace-nowrap text-right text-sm font-medium">
+<button class="text-subtle-light dark:text-subtle-dark hover:text-red-600 dark:hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<button class="mt-4 flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+                            Add Line Item
+                        </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+<div>
+<label class="block text-sm font-medium text-foreground-light dark:text-foreground-dark mb-1" for="notes">Notes</label>
+<textarea class="w-full px-3 py-2.5 text-foreground-light dark:text-foreground-dark bg-transparent dark:bg-background-dark border border-border-light dark:border-border-dark rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary" id="notes" placeholder="Add any notes or payment terms" rows="4"></textarea>
+</div>
+<div class="space-y-2 pt-6 text-right">
+<div class="flex justify-between text-sm">
+<span class="text-subtle-light dark:text-subtle-dark">Subtotal:</span>
+<span class="text-foreground-light dark:text-foreground-dark font-medium">$1300.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-subtle-light dark:text-subtle-dark">Tax (10%):</span>
+<span class="text-foreground-light dark:text-foreground-dark font-medium">$130.00</span>
+</div>
+<div class="flex justify-between text-lg font-bold border-t border-border-light dark:border-border-dark pt-2 mt-2">
+<span class="text-foreground-light dark:text-foreground-dark">Total:</span>
+<span class="text-foreground-light dark:text-foreground-dark">$1430.00</span>
+</div>
+</div>
+</div>
+<div class="pt-6 flex justify-end gap-3 border-t border-border-light dark:border-border-dark">
+<button class="px-6 py-2.5 text-sm font-bold text-subtle-light dark:text-subtle-dark bg-background-light dark:bg-background-dark/50 border border-border-light dark:border-border-dark rounded-DEFAULT hover:bg-gray-100 dark:hover:bg-background-dark transition-colors">
+                            Save Draft
+                        </button>
+<button class="px-6 py-2.5 text-sm font-bold text-white bg-primary rounded-DEFAULT hover:bg-primary/90 transition-colors">
+                            Create Invoice
+                        </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FreelanceFlow - Client Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#1173d4',
+              'background-light': '#f6f7f8',
+              'background-dark': '#101922',
+            },
+            fontFamily: {
+              display: ['Inter', 'sans-serif'],
+            },
+            borderRadius: {
+              DEFAULT: '0.25rem',
+              lg: '0.5rem',
+              xl: '0.75rem',
+              full: '9999px',
+            },
+          },
+        },
+      };
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="flex min-h-screen">
+<aside class="w-64 bg-white dark:bg-background-dark flex-shrink-0 border-r border-gray-200 dark:border-gray-800">
+<div class="p-6">
+<h1 class="text-2xl font-bold text-gray-900 dark:text-white">FreelanceFlow</h1>
+</div>
+<nav class="mt-6">
+<a class="flex items-center px-6 py-3 text-gray-600 dark:text-gray-400 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary dark:hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-4">dashboard</span>
+            Dashboard
+          </a>
+<a class="flex items-center px-6 py-3 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary font-semibold rounded-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-4">group</span>
+            Clients
+          </a>
+<a class="flex items-center px-6 py-3 text-gray-600 dark:text-gray-400 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary dark:hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-4">receipt_long</span>
+            Invoices
+          </a>
+<a class="flex items-center px-6 py-3 text-gray-600 dark:text-gray-400 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary dark:hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-4">leaderboard</span>
+            Reports
+          </a>
+<a class="flex items-center px-6 py-3 text-gray-600 dark:text-gray-400 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary dark:hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-4">settings</span>
+            Settings
+          </a>
+</nav>
+</aside>
+<main class="flex-1 p-8">
+<div class="flex justify-between items-center mb-8">
+<h2 class="text-3xl font-bold text-gray-900 dark:text-white">Clients</h2>
+<button class="flex items-center justify-center bg-primary text-white px-4 py-2 rounded-lg font-semibold hover:bg-primary/90 transition-colors duration-200">
+<span class="material-symbols-outlined mr-2">add</span>
+            New Client
+          </button>
+</div>
+<div class="mb-6">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-primary focus:border-primary placeholder-gray-400 dark:placeholder-gray-500 text-gray-900 dark:text-gray-100" placeholder="Search clients by name or email" type="text"/>
+</div>
+</div>
+<div class="bg-white dark:bg-background-dark rounded-xl shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+<thead class="text-xs text-gray-700 dark:text-gray-300 uppercase bg-gray-50 dark:bg-gray-800">
+<tr>
+<th class="px-6 py-3" scope="col">Client</th>
+<th class="px-6 py-3" scope="col">Email</th>
+<th class="px-6 py-3" scope="col">Status</th>
+<th class="px-6 py-3 text-center" scope="col">Invoices</th>
+<th class="px-6 py-3" scope="col">Last Invoice</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white dark:bg-background-dark border-b dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/50">
+<th class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap" scope="row">Acme Corp</th>
+<td class="px-6 py-4">contact@acmecorp.com</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span>
+</td>
+<td class="px-6 py-4 text-center">5</td>
+<td class="px-6 py-4">2023-08-15</td>
+</tr>
+<tr class="bg-white dark:bg-background-dark border-b dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/50">
+<th class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap" scope="row">Beta Industries</th>
+<td class="px-6 py-4">info@betaindustries.com</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 text-xs font-medium rounded-full bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300">Inactive</span>
+</td>
+<td class="px-6 py-4 text-center">2</td>
+<td class="px-6 py-4">2023-05-20</td>
+</tr>
+<tr class="bg-white dark:bg-background-dark border-b dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/50">
+<th class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap" scope="row">Gamma Solutions</th>
+<td class="px-6 py-4">support@gammasolutions.com</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span>
+</td>
+<td class="px-6 py-4 text-center">8</td>
+<td class="px-6 py-4">2023-09-01</td>
+</tr>
+<tr class="bg-white dark:bg-background-dark border-b dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900/50">
+<th class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap" scope="row">Delta Enterprises</th>
+<td class="px-6 py-4">sales@deltaenterprises.com</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span>
+</td>
+<td class="px-6 py-4 text-center">3</td>
+<td class="px-6 py-4">2023-07-10</td>
+</tr>
+<tr class="bg-white dark:bg-background-dark hover:bg-gray-50 dark:hover:bg-gray-900/50">
+<th class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap" scope="row">Epsilon Group</th>
+<td class="px-6 py-4">admin@epsilongroup.com</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 text-xs font-medium rounded-full bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300">Inactive</span>
+</td>
+<td class="px-6 py-4 text-center">1</td>
+<td class="px-6 py-4">2023-04-25</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>
